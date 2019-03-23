@@ -9,9 +9,8 @@ public class Main {
 
         ArrayList list = new ArrayList();
         int na, mo = 2;
-        String result = "";
 
-        if (n == 1) {
+        if (n == 1) { // 입력받은 숫자가 1이면 1을 출력
             System.out.println(1);
             return;
         }
