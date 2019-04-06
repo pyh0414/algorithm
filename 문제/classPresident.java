@@ -27,18 +27,17 @@ public class Main {
                 value = ary[q][w];
 
                 for (int e = 0; e < n; e++) {
-                    if (q != e && value == ary[e][w]) {
-                        if (check.contains(e)) {
+                    if (q != e && value == ary[e][w]) { // 나를 제외하고, 다른 학생과 같은 반이였는지 검사,
+                        if (check.contains(e)) { // 이미 한번 같은반이었던 사람은 제외.
                             continue;
                         } else {
-                            ary[q][5] += 1;
-                            check.add(e);
+                            ary[q][5] += 1; // 같은반이었던 사람의 수를 카운팅
+                            check.add(e); // 같은 반이였던 사람의 중복체크를 위해 리스트에 추가
                         }
                     }
                 }
             }
 
-            check.clear();
             if (ary[q][5] > max) {
                 max = ary[q][5];
                 maxIndex = q + 1;
@@ -47,7 +46,7 @@ public class Main {
 
         for (int j = 0; j < n; j++) {
             if (ary[j][5] == max) {
-                maxCount++;
+                maxCount++; // 같은 반이였던 사람의 최대값이 중복되는 경우를 조사하기 위함.
             }
         }
 
