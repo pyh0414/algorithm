@@ -11,10 +11,10 @@ public class Main {
             for (int j = 0; j < 9; j++) {
                 n = sc.nextInt();
 
-                if (n > max) {
+                if (n > max) { // 최대값을 찾기
                     max = n;
-                    x = j + 1;
-                    y = i + 1;
+                    x = j + 1; // 최대값의 x값
+                    y = i + 1; // 최대값의 y값
                 }
             }
         }
