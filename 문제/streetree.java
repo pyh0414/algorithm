@@ -22,11 +22,16 @@ public class Main {
             gap[j] = gcd(gap[j], gap[j - 1]);
         }
 
-        GCD = gap[n - 1];
+        GCD = gap[n - 1]; // for문을 돌면 gap배열의 제일 오른쪽에 최대공약수가 있음
         first = ary[0];
         last = ary[n - 1];
 
         System.out.println(((last - first) / GCD - n + 1));
+
+        // last-first/GCD+1의 값은나무간의 간격이 GCD일떄의 세울 수있는 나무의 개수. 예를 들어 기존에 세워져 있던 나무의 개수n은
+        // 4(2,6,8,14)일때 last-first = 12
+        // 12/2+1 = 7개. 총 2,4,6,8,10,12,14위치에 나무를 세울 수 있다. 여기서 추가적으로 심어야 할 나무는 7-n이 된다.
+
     }
 
     static int gcd(int a, int b) {
