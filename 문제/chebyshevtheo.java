@@ -8,7 +8,7 @@ public class Main {
 
         for (int i = 2; i <= (int) Math.sqrt(1234567); i++) {
             for (int j = i * i; j <= 1234568; j += i) {
-                ary[j] = 1; // 1인 부분은 소수가 아님
+                ary[j] = 1;
             }
         }
 
