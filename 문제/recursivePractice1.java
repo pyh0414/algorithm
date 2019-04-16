@@ -1,3 +1,6 @@
+
+// 입력받은 n정수의 각 자리값의 합 구하기
+
 import java.util.Scanner;
 
 public class Main {
