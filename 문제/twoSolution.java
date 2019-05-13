@@ -75,8 +75,8 @@ public class Main {
             n = 0 - num;
         }
 
-        start = 0; // 찾으려는 값보다 항상 작은 값
-        end = list.size() - 1; // 찾으려는 값보다 항상 큰 값
+        start = 0; // 찾으려는 값보다 항상 작거나, 멀리 있는 값의 인덱스
+        end = list.size() - 1; // 찾으려는 값보다 항상 크거나, 가까운 값의 인덱스
 
         if (list.get(start) == n) { // num과 정확히 반대되는 값을 찾으면 그 값을 return
             return list.get(start);
