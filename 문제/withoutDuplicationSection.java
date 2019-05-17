@@ -14,8 +14,8 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int start = 1; // start구간에서는 항상 성공
-        int end = n + 1; // end구간에서는 항상 실패
+        int start = 1; // start에서는 성공
+        int end = n + 1; // end에서는 실패
 
         while (start + 1 < end) {
             int mid = (start + end) / 2;
@@ -28,7 +28,7 @@ public class Main {
         System.out.println(start);
     }
 
-    static boolean check(int n) { // n구간에서 중복이 존재하는지 존재하지 않는지 검사하는 함수
+    static boolean check(int n) { // n거리에서 중복없이 가능한가?
 
         boolean isFindDuplication = false; // 첫번째 n구간에서 중복을 찾았는지 여부
 
@@ -63,40 +63,29 @@ public class Main {
         }
 
         int index = 0;
-        int removeElement = 0, newElement = 0;
-        boolean isDuplicationNum; // 새로 추가된 숫자가 구간에서 이미 중복된 숫자인지 확인
+        int removeElement = 0, newElement = 0; // 구간을 한칸씩 전진하면서 제거/추가 되는 값
 
         for (int i = n; i < arr.length; i++) {
 
-            isDuplicationNum = false;
-
             removeElement = arr[index++];
             check[removeElement]--;
+            if (check[removeElement] == 1) {
 
-            if (check[removeElement] == 1) { // 위에서 removeElement에서의 값을 --했는데, 그 값이 1이라면
-                                             // 이 값은 원래 1보다 컸던 값=> 이는 중복되는 숫자였는데,
-                                             // 지금은 아닌 경우, duplicationCount--을 해준다.
                 duplicationCount--;
+                // 위에서 removeElement에서의 값을 --했는데, 그 값이 1이라면
+                // 이 값은 원래 2였다. 이는 곧 중복된 숫자를 의미한다.
+                // 그리고 중복된 숫자가 없어 졌기 때문에 duplicationCount--;
+
             }
 
             newElement = arr[i];
-
-            // 새로운 값을 넣었을 때, 그 값이 중복이면 duplicationCount++인데,
-            // 이미 그 값이 구간내에서 중복된 경우라면, 중복을 두번 하게 되므로
-            // 이런 경우는 제외해준다.
-
-            // 2 2 8 7 1에서 2(newElement)를 추가하는 경우, check[newElement]의 값은 이미 11보다
-            // 크기 때문에, 이미 이 값을 구간에서 중복된 값이다 라고 표시해주어야 한다.
-            if (check[newElement] > 1) {
-                isDuplicationNum = true;
-            }
-
             check[newElement]++;
 
-            if (!isDuplicationNum && check[newElement] > 1) { // isDuplicationNum=false고, 즉 기존의 구간에서
-                                                              // newElement가 중복된 숫자가 아니면
+            if (check[newElement] == 2) {
                 duplicationCount++;
             }
+            // 새로 추가된 값의 중복값이 2라는 말은, 구간내에서 중복된 값이 추가되었다는 의미이기
+            // 때문에 duplicationCount++
 
             if (duplicationCount > 0) { // 구간 내에서 중복된 숫자가 있으면, successCount--;
                 successCount--;
