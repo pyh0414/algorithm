@@ -14,13 +14,8 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int start = 1; // start에서는 성공
-        int end = n; // end에서는 실패
-
-        if (check(end)) {
-            System.out.println(end);
-            return;
-        }
+        int start = 1; // start구간에서는 항상 성공
+        int end = n + 1; // end구간에서는 항상 실패
 
         while (start + 1 < end) {
             int mid = (start + end) / 2;
@@ -33,7 +28,7 @@ public class Main {
         System.out.println(start);
     }
 
-    static boolean check(int n) { // n거리에서 중복없이 가능한가?
+    static boolean check(int n) { // n구간에서 중복이 존재하는지 존재하지 않는지 검사하는 함수
 
         boolean isFindDuplication = false; // 첫번째 n구간에서 중복을 찾았는지 여부
 
