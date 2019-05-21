@@ -33,36 +33,36 @@ public class Main {
 
 class Stack {
 
-    int len = 0;
-    int capacity;
-    int[] stack = new int[101];
+    int size = -1;
+    int[] stack;
 
     void create(int n) {
-        capacity = n;
+        stack = new int[n];
     }
 
     void push(int n) {
-        if (len >= capacity) {
+        if (size + 1 >= stack.length) {
             System.out.println("Overflow");
         } else {
-            stack[len++] = n;
+            size++;
+            stack[size] = n;
         }
     }
 
     void pop() {
-        if (len <= 0) {
+        if (size < 0) {
             System.out.println("Underflow");
         } else {
-            stack[len - 1] = 0;
-            len--;
+            stack[size] = 0;
+            size--;
         }
     }
 
     void top() {
-        if (len <= 0) {
+        if (size < 0) {
             System.out.println("NULL");
         } else {
-            System.out.println(stack[len - 1]);
+            System.out.println(stack[size]);
         }
     }
 }
