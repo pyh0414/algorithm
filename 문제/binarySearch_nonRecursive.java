@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,35 +10,41 @@ public class Main {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+
         int m = sc.nextInt();
 
-        int result = binarySearch(arr, 0, n - 1, m);
+        int start, end, mid;
+        // start : m보다 무조건 작은값
+        // end : m보다 무조건 큰 값
 
-        if (result == -1) {
-            System.out.println("못찾았습니다");
-        } else {
-            System.out.println(result + "번째 위치에 있습니다");
-        }
-    }
+        start = 0;
+        end = n - 1;
 
-    static int binarySearch(int[] arr, int start, int end, int value) {
-        if (start > end) {
-            return -1;
-        } else if (start == end) {
-            if (arr[start] == value) {
-                return start;
-            } else {
-                return -1;
+        if (arr[start] > m && arr[end] < m) {
+            System.out.println(-1);
+            return;
+        } else if (arr[start] == m) {
+            System.out.println(start + " 번째에 있습니다.");
+            return;
+        } else if (arr[end] == m) {
+            System.out.println(end + " 번째에 있습니다.");
+            return;
+        }
+
+        while (start + 1 < end) {
+            mid = (start + end) / 2;
+
+            if (arr[mid] == m) {
+                System.out.println(mid + " 번쨰에 있습니다.");
+                return;
             }
-        } else {
-            int mid = (start + end) / 2;
-            if (arr[mid] == value) {
-                return mid;
-            } else if (arr[mid] > value) {
-                return binarySearch(arr, start, mid - 1, value);
-            } else {
-                return binarySearch(arr, mid + 1, end, value);
+
+            if (arr[mid] > m) {
+                end = mid;
+            } else if (arr[mid] < m) {
+                start = mid;
             }
         }
+        System.out.println("찾으려는 숫자가 없습니다.");
     }
 }
