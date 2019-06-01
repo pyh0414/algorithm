@@ -33,7 +33,7 @@ public class Main {
 
 class Stack {
 
-    int size = -1;
+    int top = -1;
     int[] stack;
 
     void create(int n) {
@@ -41,28 +41,28 @@ class Stack {
     }
 
     void push(int n) {
-        if (size + 1 >= stack.length) {
+        if (top + 1 >= stack.length) {
             System.out.println("Overflow");
         } else {
-            size++;
-            stack[size] = n;
+            top++;
+            stack[top] = n;
         }
     }
 
     void pop() {
-        if (size < 0) {
+        if (top < 0) {
             System.out.println("Underflow");
         } else {
-            stack[size] = 0;
-            size--;
+            stack[top] = 0;
+            top--;
         }
     }
 
-    void top() {
-        if (size < 0) {
+    void peek() {
+        if (top < 0) {
             System.out.println("NULL");
         } else {
-            System.out.println(stack[size]);
+            System.out.println(stack[top]);
         }
     }
 }
