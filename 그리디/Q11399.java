@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class Q11399 {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -18,7 +18,6 @@ public class Q11399 {
 
         Arrays.sort(arr);
 
-        int num;
         for (int j = 0; j < n; j++) {
             sum += arr[j];
             result += sum;
