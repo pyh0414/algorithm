@@ -8,14 +8,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        ArrayList<conference> list = new ArrayList<conference>();
+        ArrayList<Conference> list = new ArrayList<Conference>();
 
         for (int i = 0; i < n; i++) {
-            list.add(new conference(sc.nextInt(), sc.nextInt()));
+            list.add(new Conference(sc.nextInt(), sc.nextInt()));
         }
 
-        Collections.sort(list, new Comparator<conference>() {
-            public int compare(conference c1, conference c2) {
+        Collections.sort(list, new Comparator<Conference>() {
+            public int compare(Conference c1, Conference c2) {
                 if (c1.getEnd() > c2.getEnd()) {
                     return 1;
                 } else if (c1.getEnd() < c2.getEnd()) {
@@ -42,11 +42,11 @@ public class Main {
     }
 }
 
-class conference {
+class Conference {
     int start;
     int end;
 
-    conference(int start, int end) {
+    Conference(int start, int end) {
         this.start = start;
         this.end = end;
     }
