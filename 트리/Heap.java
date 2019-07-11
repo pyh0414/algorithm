@@ -50,7 +50,7 @@ class Heap {
         item = itemHeap[1];
         temp = itemHeap[heapSize--];
         parent = 1;
-        child = 1;
+        child = 2;
 
         while (child <= heapSize) {
             if ((child < heapSize) && (itemHeap[child] < itemHeap[child + 1])) {
