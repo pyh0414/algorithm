@@ -28,19 +28,15 @@ public class Main {
         for (y = 0; y < N; y++) {
             for (x = 0; x < N; x++) {
                 if (arr[y + 1][x + 1] == 1) {
+
                     danjiHomes = 0;
-
                     dfs(y + 1, x + 1);
-
-                    if (danjiHomes == 0) {
-                        danjiHomes = 1;
-                    }
                     list.add(danjiHomes);
                     danji++;
+
                 }
             }
         }
-
         Collections.sort(list);
         System.out.println(danji);
 
@@ -50,16 +46,18 @@ public class Main {
     }
 
     static void dfs(int y, int x) {
+
+        arr[y][x] = 0;
+        danjiHomes++;
+
         for (int i = 0; i < 4; i++) {
 
             int newY = y + dy[i];
             int newX = x + dx[i];
-
             if (arr[newY][x + dx[i]] == 1) {
-                danjiHomes++;
-                arr[newY][newX] = 0;
                 dfs(newY, newX);
             }
+
         }
     }
 }
