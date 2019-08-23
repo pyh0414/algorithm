@@ -12,8 +12,6 @@ public class Main {
         int max = 0;
         int index;
 
-        List<Character> list = new ArrayList<Character>();
-
         while (sc.hasNextLine()) {
             str = sc.nextLine();
             String[] arr = str.split(" ");
