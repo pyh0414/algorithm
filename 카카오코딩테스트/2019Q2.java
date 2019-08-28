@@ -1,3 +1,6 @@
+
+// https://www.welcomekakao.com/learn/courses/30/lessons/42888?language=java
+// 실패율
 import java.util.*;
 
 class Solution {
