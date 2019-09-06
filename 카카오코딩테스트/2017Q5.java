@@ -13,7 +13,7 @@ class Solution {
 
         int intersection = 0;
 
-        List<Integer> check = new ArrayList<Integer>(); // 교집합 구할 떄, 줍옥ㄷ
+        List<Integer> check = new ArrayList<Integer>(); // 교집합 구할 떄, 중복제거
 
         for (int a = 0; a < list1.size(); a++) { // 교집합 개수 구하기
             String s1 = (String) list1.get(a);
