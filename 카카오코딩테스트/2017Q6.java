@@ -29,14 +29,14 @@ class Solution {
             }
         }
 
-        while (findRemovableBlocks()) { // 제거할 수 있는 블럭이 발견할 떄까지, 그 블록들을 없애면서 반복
+        while (findRemovableBlocksAndCheck()) { // 제거할 수 있는 블럭이 발견할 떄까지, 그 블록들을 없애면서 반복
             removeBlocks();
         }
 
         return count;
     }
 
-    boolean findRemovableBlocks() { // 2x2구역이 있는지 검사,있다면 2x2구역의 시작점(왼쪽위)를 저장
+    boolean findRemovableBlocksAndCheck() { // 2x2구역이 있는지 검사,있다면 2x2구역의 시작점(왼쪽위)를 저장
 
         int height = blocks.length;
         int width = blocks[0].length;
@@ -72,7 +72,7 @@ class Solution {
         return false;
     }
 
-    void removeBlocks() { // 없어질 블럭에 '#'를 표시하고, 남은 블럭을 재정렬
+    void removeAndDropBlocks() { // 없어질 블럭에 '#'를 표시하고, 남은 블럭을 재정렬
 
         int x, y;
         int height = blocks.length;
