@@ -37,7 +37,7 @@ class Solution {
         return (int) (((float) intersection / union) * 65536);
     }
 
-    List subset(String s) { // 문자열 s의 부분집합
+    List subset(String s) { // 문자열 s의 다중집합
 
         List<String> list = new ArrayList<String>();
         char[] arr = s.toCharArray();
