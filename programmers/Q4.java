@@ -25,11 +25,7 @@ class Solution {
                 count++;
             }
 
-            if (map.get(word) != null) {
-                isFail = true;
-                break;
-            }
-            if (i > 0 && preWord.charAt(preWord.length() - 1) != word.charAt(0)) {
+            if (i > 0 && preWord.charAt(preWord.length() - 1) != word.charAt(0) || map.get(word) != null) {
                 isFail = true;
                 break;
             }
