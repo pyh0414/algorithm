@@ -1,72 +1,55 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main()
 {
+
     int n;
     cin >> n;
-
-    vector<int> v1(n);
+    vector<int> v(n);
 
     for (int i = 0; i < n; i++)
     {
-        cin >> v1[i];
+        cin >> v[i];
     }
 
-    vector<int> v2(v1);
+    int index1 = n - 1;
 
-    bool isReverse = true;
-    for (int i = 0; i < n - 1; i++)
+    // 4 1 5 3 2
+    while (index1 > 0 && v[index1] < v[index1 - 1])
     {
-        if (v1[i + 1] > v1[i])
-        {
-            isReverse = false;
-            break;
-        }
+        index1--;
     }
 
-    if (isReverse)
+    if (index1 == 0)
     {
         cout << -1;
         return 0;
     }
 
-    bool isSame = false;
-    bool passFirst = false;
+    int index2 = n - 1;
 
-    do
+    while (v[index1 - 1] > v[index2])
     {
+        index2--;
+    }
 
-        if (!passFirst)
-        {
-            passFirst = true;
-        }
+    swap(v[index1 - 1], v[index2]);
+    index2 = n - 1;
 
-        if (isSame && passFirst)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                cout << v1[i] << " ";
-            }
-            return 0;
-        }
-        bool flag = true;
-        for (int i = 0; i < n; i++)
-        {
-            if (v1[i] != v2[i])
-            {
-                flag = false;
-                break;
-            }
-        }
-        if (flag)
-        {
-            isSame = true;
-        }
-    } while (next_permutation(v1.begin(), v1.end()));
+    while (index1 < index2)
+    {
+        swap(v[index1], v[index2]);
+        index1++;
+        index2--;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << v[i] << " ";
+    }
 
     return 0;
 }
