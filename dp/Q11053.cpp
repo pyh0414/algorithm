@@ -24,6 +24,7 @@ int main()
     for (int i = 1; i <= n; i++)
     {
         int cnt = 0;
+        dp[i] = 1;
         for (int j = 1; j <= i; j++)
         {
             if (arr[i] > arr[j])
@@ -31,7 +32,7 @@ int main()
                 cnt = max(cnt, dp[j]);
             }
         }
-        dp[i] = cnt + 1;
+        dp[i] += cnt;
         result = max(result, dp[i]);
     }
 
